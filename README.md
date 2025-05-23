@@ -20,7 +20,7 @@ Official codebase for the paper
 
 ## Overview
 
-**Abstract:** Recent advances have demonstrated the effectiveness of Reinforcement Learning (RL) in improving the reasoning capabilities of Large Language Models (LLMs). However, existing works inevitably rely on high-quality instructions and verifiable rewards for effective training, both of which are often difficult to obtain in specialized domains. In this paper, we propose \textit{\textbf{Se}lf-play \textbf{R}einforcement \textbf{L}earning}~(SeRL) to \textit{bootstrap} LLM training with limited initial data. Specifically, SeRL comprises two complementary modules: self-instruction and self-rewarding. 
+**Abstract:** Recent advances have demonstrated the effectiveness of Reinforcement Learning (RL) in improving the reasoning capabilities of Large Language Models (LLMs). However, existing works inevitably rely on high-quality instructions and verifiable rewards for effective training, both of which are often difficult to obtain in specialized domains. In this paper, we propose ***Se**lf-play **R**einforcement **L**earning* (SeRL) to *bootstrap* LLM training with limited initial data. Specifically, SeRL comprises two complementary modules: self-instruction and self-rewarding. 
 
 - The former module generates additional instructions based on the available data at each training step, employing comprehensive online filtering strategies to ensure instruction quality, diversity, and difficulty. 
 
