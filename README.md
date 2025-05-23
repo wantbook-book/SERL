@@ -10,10 +10,12 @@
 	<a href="https://github.com/wantbook-book/SeRL"><img src="https://img.shields.io/github/stars/wantbook-book/SeRL"/></a>
 </div>
 
-Official codebase for the paper "[SeRL: Self-Play Reinforcement Learning for Large Language Models with Limited Data](arxiv)". This training code is based on the [OpenRLHF](https://github.com/OpenRLHF/OpenRLHF) framework, and the evaluation code is based on the [Qwen2.5-Math](https://github.com/QwenLM/Qwen2.5-Math), [Math-Verify](https://github.com/huggingface/Math-Verify) and [MMLU-Pro](https://github.com/TIGER-AI-Lab/MMLU-Pro).
+Official codebase for the paper  
+📄 **"SeRL: Self-Play Reinforcement Learning for Large Language Models with Limited Data"**  
+*(To appear on arXiv soon)*. This training code is based on the [OpenRLHF](https://github.com/OpenRLHF/OpenRLHF) framework, and the evaluation code is based on the [Qwen2.5-Math](https://github.com/QwenLM/Qwen2.5-Math), [Math-Verify](https://github.com/huggingface/Math-Verify) and [MMLU-Pro](https://github.com/TIGER-AI-Lab/MMLU-Pro).
 
 <div align="center">
-<img src="./imgs/frame.png" width="100%">
+<img src="./imgs/frame.png" width="80%">
 </div>
 
 ## Overview
@@ -28,31 +30,29 @@ Official codebase for the paper "[SeRL: Self-Play Reinforcement Learning for Lar
 
 Extensive experiments on various reasoning benchmarks and across different LLM backbones demonstrate that the proposed SeRL yields results superior to its counterparts and achieves performance on par with those obtained by high-quality data with verifiable rewards.
 
-## News
+## 🗞️ News
 
+- **`[May 23, 2025]`** 🔥 The [GitHub repository](https://github.com/wantbook-book/SeRL) for **SeRL** has been **officially open-sourced**! Explore the code, contribute, or give it a ⭐️ if you find it helpful!
 
-- **`[May 23, 2025]`** 🔥 The [GitHub repository](https://github.com/wantbook-book/SeRL) for **SeRL** has been open-sourced!
+## 🧭 Contents
 
+- 🗂️ [Directory Overview](#directory-overview)
+- ⚙️ [Installation](#installation)
+- 🧩 [SeRL Configurations](#serl-configurations)
+  - 🧠 [Algorithm Choices](#algorithm-choices)
+  - 🧮 [Resource Allocation](#resource-allocation)
+  - 📂 [Directory Settings](#directory-settings)
+  - 🎚️ [Hyperparameter Settings](#hyperparameter-settings)
+  - 📈 [Logging](#logging)
+- 🛠️ [Other Configurations](#other-configurations)
+- 🏋️ [Training](#training)
+- 🔬 [Evaluation](#evaluation)
+  - ➗ [Math Benchmarks](#math-benchmarks)
+  - 🧪 [MMLU-Pro Benchmark](#mmlu-pro-benchmark)
+- 🚀 [Performance](#performance)
+- ❓ [FAQs](#faqs)
 
-## Contents
-
-- [Directory Overview](#directory-overview)
-- [Installation](#installation)
-- [SeRL Configurations](#serl-configurations)
-  - [Algorithm Choices](#algorithm-choices)
-  - [Resource Allocation](#resource-allocation)
-  - [Directory Settings](#directory-settings)
-  - [Hyperparameter Settings](#hyperparameter-settings)
-  - [Logging](#logging)
-- [Training](#training)
-- [Evaluation](#evaluation)
-  - [Math Benchmarks](#math-benchmarks)
-  - [MMLU-Pro Benchmark](#mmlu-pro-benchmark)
-- [Performance](#performance)
-- [FAQs](#faqs)
-
-
-## Directory Overview
+## 🗂️ Directory Overview
 
 * **`openrlhf/`**
 
@@ -63,7 +63,7 @@ Extensive experiments on various reasoning benchmarks and across different LLM b
   Includes evaluation code for Math benchmarks and MMLU-Pro.
 
 
-## Installation
+## ⚙️ Installation
 
 We recommend using **Python 3.11**. The environment has been tested on **Ubuntu 20.04**.
 
@@ -77,9 +77,9 @@ cd openrlhf
 pip install -e .
 ```
 
-## SeRL Configurations
+## 🧩 SeRL Configurations
 
-### Algorithm Choices
+### 🧠 Algorithm Choices
 
 Different training algorithms use different script templates. Choose one according to your preference. We recommend **Reinforce++** for its robustness.
 
@@ -87,7 +87,7 @@ Different training algorithms use different script templates. Choose one accordi
 * GRPO: `openrlhf/scripts/train/train_llama32_3b_grpo_serl_template.sh`
 * RLOO: `openrlhf/scripts/train/train_llama32_3b_rloo_serl_template.sh`
 
-### Resource Allocation
+### 🧮 Resource Allocation
 
 #### For LLaMA-3.2-3B-Instruct on 8× A6000 (48GB) GPUs:
 
@@ -120,7 +120,7 @@ Different training algorithms use different script templates. Choose one accordi
 
 Adjust based on your available resources. For more details, see the [OpenRLHF Documentation](https://openrlhf.readthedocs.io/en/latest/quick_start.html).
 
-### Directory Settings
+### 📂 Directory Settings
 
 | Argument                               | Description                                                                                                                                                                                                                        |
 | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -137,7 +137,7 @@ Adjust based on your available resources. For more details, see the [OpenRLHF Do
 | `--eval_dataset`                       | Path to evaluation dataset, e.g., `/path/to/your/SeRL/evaluation/Math-Benchmarks/data/math_500/test_with_idx.jsonl`.                                                                                                                              |
 | `--few_shot_generation_prompt`         | Prompt file for few-shot instruction generation. Set to `/path/to/your/SeRL/openrlhf/prompts/instruction_generation.jsonl`.                                                                                                        |
 
-### Hyperparameter Settings
+### 🎚️ Hyperparameter Settings
 
 Recommended settings for **Reinforce++**:
 
@@ -158,12 +158,12 @@ Recommended settings for **Reinforce++**:
 
 Adjust `micro_*_batch_size` to avoid OOM based on your hardware.
 
-### Logging
+### 📈 Logging
 
 * `--use_wandb`: Set to your personal Weights & Biases API key.
 * `--wandb_run_name`: Custom name for the current run.
 
-## Other Configurations
+## 🛠️ Other Configurations
 
 ### Training with Rule-Based Reward
 
@@ -200,7 +200,7 @@ These parameters are not needed any more:
 - `--few_shot_generation_batch_size`
 - `--instructions_num_per_iteration`
 
-## Training
+## 🏋️ Training
 
 Before training, update the training script using the configurations above.
 
@@ -210,10 +210,9 @@ cd openrlhf
 zsh scripts/train/<your_train_script>
 ```
 
+## 🔬 Evaluation
 
-## Evaluation
-
-### Math Benchmarks
+### ➗ Math Benchmarks
 
 Supported datasets:
 `asdiv, carp_en, college_math, gaokao2023en, mawps, minerva_math, mmlu_stem, olympiadbench, svamp, tabmwp`
@@ -263,7 +262,7 @@ Supported datasets:
 
 Results are saved in the output directory.
 
-### MMLU-Pro Benchmark
+### 🧪 MMLU-Pro Benchmark
 
 1. Modify `evaluation/MMLU-Pro/scripts/eval_models_template.sh`:
 
@@ -278,32 +277,69 @@ To categorize and compute statistics across subject areas (`STEM`, `Humanities`,
 Set the `input_file` to the result summary and run the script to output categorized results.
 
 
-## Performance
+## 🚀 Performance
 
 Performance of LLaMA-3.2-3B-Instruct using different algorithms under our SeRL framework on Math Benchmarks
+
 <img src="./imgs/algo_compare.png" width="63%">
 
 Evaluation of LLaMA-3.2-3B-Instruct and Qwen-2.5-7B-Instruct with the Reinforce++ algorithm under our SeRL framework on MMLU-Pro
+
 <img src="./imgs/mmlu_pro.png" width="65%">
 
-## FAQs
+## ❓ Frequently Asked Questions (FAQs)
 
-1. Some caught errors during training or evaluation are internally handled by the Math-Verify evaluation process. These do not affect execution or evaluation reliability.
+### 1. Why do I see errors during training or evaluation?
 
-2. Training may occasionally get stuck. In such cases, you can resume training by loading the checkpoint (ckpt).
+Some errors you encounter during training or evaluation are **internally caught and handled** by the Math-Verify evaluation process.  
+These internal exceptions **do not affect** the correctness or reliability of the overall training or evaluation results.  
+You can generally ignore them unless explicitly reported as critical.
 
-3. lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+---
 
-   Find the appropriate versions of Python, PyTorch, and CUDA from the [FlashAttention release page](https://github.com/Dao-AILab/flash-attention/releases).
-   
-   After identifying the correct .whl file, download it using wget and install it with pip:
+### 2. What should I do if training gets stuck?
+
+Occasionally, training might freeze or get stuck due to hardware or framework instability.  
+If this happens, simply **resume training from the latest checkpoint** (`ckpt`).  
+✅ This is supported by OpenRLHF.
+
+---
+
+### 3. FlashAttention 2 error: `undefined symbol`
+
+You may encounter an error like this:
+```
+lib/python3.11/site-packages/flash_attn_2_cuda.cpython-311-x86_64-linux-gnu.so:
+undefined symbol: _ZN3c105ErrorC2ENS_14SourceLocationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+```
+
+This usually means there's a **version mismatch** between your Python, PyTorch, and CUDA versions and those expected by FlashAttention 2.
+
+#### ✅ Solution
+
+1. Visit the [FlashAttention release page](https://github.com/Dao-AILab/flash-attention/releases).
+2. Find the correct `.whl` file that matches your:
+   - Python version (e.g., 3.11)
+   - PyTorch version
+   - CUDA version
+3. Download the package using `wget`:
    ```bash
    wget <URL_TO_WHL>
+   ```
+4. Install it using pip:
+
+   ```bash
    pip install <PACKAGE_NAME>.whl
    ```
 
-## License
+
+## ⚖️ License
 
 | Component        | License                                                                                                                             |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | [Codebase](https://github.com/wantbook-book/SeRL)     | [Apache-2.0 License](https://github.com/wantbook-book/SeRL/blob/main/LICENSE)                                                                                                  |
+
+## 🙏 Acknowledgments
+
+- [OpenRLHF](https://github.com/OpenRLHF/OpenRLHF) for the RL training framework  
+- [Math-Verify](https://github.com/huggingface/Math-Verify), [Qwen2.5-Math](https://github.com/QwenLM/Qwen2.5-Math), and [MMLU-Pro](https://github.com/TIGER-AI-Lab/MMLU-Pro) for evaluation support.
