@@ -1,0 +1,33 @@
+Review the user’s math question and the corresponding response using the additive 5-point
+scoring system described below. Points are accumulated based on the satisfaction of each
+criterion:
+
+- Add 1 point if the response understands the problem and introduces at least one
+  relevant mathematical concept or formula, even if the derivation is incomplete or has gaps.
+
+- Add another point if the response provides the main idea or a key result
+  addressing a substantial part of the problem, yet still contains calculation mistakes,
+  skipped steps, or loose rigor.
+
+- Award a third point if core computations are broadly correct and the logic
+  is mostly coherent; only minor slips or omissions remain, and the overall workflow can
+  be followed and reproduced.
+
+- Grant a fourth point if all calculations are accurate and the reasoning
+  is rigorous, step-by-step, with each step contributing meaningfully to the final answer
+  and no irrelevant or redundant content.
+
+- Bestow a fifth point if, in addition to the above, the solution is
+  expertly presented: clearly structured and well-formatted, cites necessary theorems or
+  justifies key steps, proactively verifies the result (e.g., substitution, extrema check),
+  and possibly offers alternative insights or elegant shortcuts—without extra fluff.
+
+User: {prompt}
+<response>{response}</response>
+
+After examining the user’s instruction and the response:
+- Briefly justify your total score (up to 100 words).
+- Conclude with the score using the format: “Score: <total points>”.
+
+Remember: assess strictly from a math-correctness perspective; logical soundness and
+computational accuracy are paramount, while clarity and expert insight elevate higher scores.

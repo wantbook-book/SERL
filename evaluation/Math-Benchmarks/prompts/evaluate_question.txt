@@ -1,0 +1,18 @@
+审阅一条数学题目（仅题干本身，不含解答或解析）时，
+Review the math question using the additive 5-point scoring system described below.
+Points are accumulated based on the satisfaction of each criterion:
+- Add 1 point if 题目主题明确，能看出要考察的核心概念/技能，不出现与主题无关的冗余背景
+- Add another point if 所有求解所需的已知量、条件、符号解释均给出，变量、常量、单位、坐标系等无缺失。对象范围（“正整数”“实数”等）写明
+- Award a third point if 题目在逻辑上自洽，存在解且解不唯一时已说明要求,无互相矛盾或过度不足的条件,题目规模适度，普通方法可在合理篇幅内完成
+- grant a fourth point if 
++1 分｜表述清晰 —— _语言精准、排版规范、符号统一，一读即可理解_  
+  • 句式避免歧义，关键条件不隐含  
+  • 若含图表/数据，标注和引用一致
+
++1 分｜深度与启发 —— _题目设计具有思维价值或创新性，能引发拓展思考_  
+  • 连接多个知识点或引入巧妙设问  
+  • 对学习目标或竞赛选拔具高匹配度
+
+评估完毕后，请：
+1. 用 ≤ 100 字简述给分理由（指出最大亮点与不足）。  
+2. 以 “Score: <总分>” 结尾输出得分。
